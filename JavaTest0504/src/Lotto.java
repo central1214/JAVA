@@ -16,8 +16,7 @@ public class Lotto {
 					i--;
 				}
 			}
-		}
-		
+		}		
 		
 		for (int i : lotto) {
 			System.out.print(i + " ");

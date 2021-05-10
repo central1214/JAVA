@@ -1,7 +1,10 @@
 import java.util.Scanner;
 
 public class Loop_Ex {
-
+	static final int MUNU_FILE_WRITE = 1;
+	static final int MUNU_FILE_READ = 2;
+	static final int MUNU_FILE_EXIT = 3;
+	
 	public static void main(String[] args) {
 		//Ex1
 		Scanner sc = new Scanner(System.in);
@@ -23,23 +26,23 @@ public class Loop_Ex {
 //		}
 		//Ex4
 //		int total = 0;		
+//		int num2 = 0;
 //		System.out.println("Num1 입력 => ");
 //		int num1 = sc.nextInt();
 //		System.out.println("Num2 입력 => ");
-//		int num3 = 0;
-//		while(true) {
-//			int num2 = sc.nextInt();
+//	
+//		while(true) { //for(;;)와 같다.
+//			num2 = sc.nextInt();
 //			if (num1 >= num2) {
 //				System.out.println("ERROR!!!!");
 //			}
 //			else {
-//				num3 = num2;
 //				break;}
 //		}
-//		for (int i = num1; i <= num3; i++) {
+//		for (int i = num1; i <= num2; i++) {
 //			total += i;
 //		}
-//		System.out.printf("%d ~ %d 까지의 합 : %d\n",num1,num3,total);
+//		System.out.printf("%d ~ %d 까지의 합 : %d\n",num1,num2,total);
 //		
 
 		//Ex5
@@ -50,6 +53,7 @@ public class Loop_Ex {
 //		
 		//}
 		//Ex7
+		
 		while(true) {
 		System.out.println("-----------------------");
 		System.out.println("간단한 파일 관리 프로그램 v1.0");
@@ -59,16 +63,15 @@ public class Loop_Ex {
 		System.out.println("3. 종료");
 		System.out.print("메뉴를 선택하세요: ");
 		int opt = sc.nextInt();
-		if (opt == 1) {
-			System.out.println("파일 생성 및 쓰기 실행됩니다");
-			break;
+		if (opt == MUNU_FILE_WRITE) {
+			System.out.println("파일 생성 및 쓰기 실행됩니다");			
 		}
-		else if (opt == 2) {
-			System.out.println("파일 일기가 실행됩니다");
-			break;
+		else if (opt == MUNU_FILE_READ) {
+			System.out.println("파일 읽기가 실행됩니다");
 		}
-		else if (opt == 3) {
+		else if (opt == MUNU_FILE_EXIT) {
 			System.out.println("프로그램이 종료됩니다.");
+			System.exit(0); //프로그램 종료 함수
 			break;}
 		
 		else { System.out.println("잘못된 입력입니다.");
