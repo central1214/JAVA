@@ -17,10 +17,11 @@ public class hashMapEx {
 		map1.put("포도2", "씨3많아!");
 		map1.put("포도3", "씨2많아!");
 		map1.put("포도4", "씨5많아!");
+		System.out.println(map1.keySet());
 		// HashMap 값 제거
 		map1.remove("사과");
 		System.out.println(map1);
-		System.out.println(map1.get("포도1")); // 포도1 키 값 출력
+		System.out.println(map1.get("포도1")); // 포도1 밸류 값 출력
 
 		for (Entry<String, String> entry : map1.entrySet()) {
 			System.out.println("[key] : " + entry.getKey() + " [Value] : " + entry.getValue());
