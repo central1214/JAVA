@@ -2,7 +2,7 @@ package hashMapStudy;
 
 import java.util.HashMap;
 
-public class hashMapEx2 {
+public class hashMapEx2 {//https://codevang.tistory.com/289 해시맵 운동선수 정리
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

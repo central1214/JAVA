@@ -7,11 +7,11 @@ import java.util.Random;
 public class ArrayNameMethod {
 
 	private static final String FileOuputStream = null;
+
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		String arr[][] = { { "김", "박", "이", "최", "장" }, { "바", "사", "아", "자", "차" }, { "가", "나", "다", "라", "마" } };
-		String totalName = "";
 
 		while (true) {
 
@@ -19,10 +19,7 @@ public class ArrayNameMethod {
 			int opt = sc.nextInt();
 			switch (opt) {
 			case 1: {
-				for (int i = 0; i < 50; i++) {
-					totalName += mixName(arr);
-				}
-				saveName(totalName);
+				saveName(mixName(arr));
 				break;
 			}
 			case 2: {
@@ -34,6 +31,7 @@ public class ArrayNameMethod {
 				break;
 			}
 			}
+			
 		}
 
 	}
@@ -53,8 +51,12 @@ public class ArrayNameMethod {
 
 	public static String mixName(String[][] arr) {
 		Random ran = new Random();
-		String name = arr[0][ran.nextInt(5)] + arr[1][ran.nextInt(5)] + arr[2][ran.nextInt(5)] + "\n";
-		return name;
+		String totalName = "";
+		for (int i = 0; i < 50; i++) {
+			totalName += arr[0][ran.nextInt(5)] + arr[1][ran.nextInt(5)] + arr[2][ran.nextInt(5)] + "\n";
+		}
+
+		return totalName;
 	}
 
 	public static void saveName(String name) {

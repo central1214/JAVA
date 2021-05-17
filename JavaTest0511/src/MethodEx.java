@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class MethodEx {
 
@@ -7,12 +8,12 @@ public class MethodEx {
 
 		// ex1();
 		// ex4();
-		// ex6();
+		ex6();
 		// ex7();
 		// ex8();
 		// ex9();
 		// ex10();
-		ex11();
+		//ex11();
 
 	}
 
@@ -65,6 +66,7 @@ public class MethodEx {
 
 		lottoIntro();
 		int lottoNum[] = lotto();
+		Arrays.sort(lottoNum);
 		for (int i : lottoNum) {
 			System.out.println(i);
 		}
@@ -84,9 +86,12 @@ public class MethodEx {
 		int lotto[] = new int[6];
 		for (int i = 0; i < 6; i++) {
 			lotto[i] = rand.nextInt(45) + 1;
+			System.out.println("랜덤 숫자 발생 : " + lotto[i]);
 			for (int j = 0; j < i; j++) {
 				if (lotto[i] == lotto[j]) {
+					System.out.println("!!!!!!!!!!중복!!!!!!!!!!!\n숫자 제거 : " + lotto[i]);
 					i--;
+					break;
 				}
 			}
 		}

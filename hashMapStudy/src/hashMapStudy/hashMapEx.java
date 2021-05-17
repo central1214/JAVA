@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-public class hashMapEx {
+public class hashMapEx {//https://vaert.tistory.com/107 해시맵 메서드 정리
 
 	public static void main(String[] args) {
 		// HashMap 선언
@@ -17,7 +17,7 @@ public class hashMapEx {
 		map1.put("포도2", "씨3많아!");
 		map1.put("포도3", "씨2많아!");
 		map1.put("포도4", "씨5많아!");
-		System.out.println(map1.keySet());
+		System.out.println("키값" + map1.keySet());
 		// HashMap 값 제거
 		map1.remove("사과");
 		System.out.println(map1);
