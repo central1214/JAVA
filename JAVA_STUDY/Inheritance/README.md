@@ -79,4 +79,3 @@ public class Student extends Man {
 	
 }
 ```
-
