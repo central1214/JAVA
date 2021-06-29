@@ -79,3 +79,61 @@ public class Student extends Man {
 	
 }
 ```
+## instanceof 연산자
+ - 참조변수가 참조하는 클래스나 상속하는 클래스를 묻는 연산자이다. 
+ - if(cake instanceof Cake)
+ - cake 참조변수가 Cake의 인스턴스인가를 묻는 것이다. 맞으면 true, 틀리면 false를 반환한다.
+```java
+class Box{
+	public void simpleWrap() {
+		System.out.println("간단하게 포장~");
+	}
+}
+class PaperBox extends Box {
+	public void paperWrap() {
+		System.out.println("종이로 포장!");
+		
+	}
+}
+class GoldBox extends PaperBox {
+	public void goldWrap() {
+		System.out.println("금으로 포장!!!!");
+	}
+}
+
+public class JavaStudy {
+
+	public static void main(String[] args) {
+				
+		Box1 box4 = new Box1();
+		Box1 box5 = new PaperBox1(); //Box를 상속하는 PaperBox
+		Box1 box6 = new GoldBox1(); // Box를 상속하는 PaperBox를 상속하는 GoldBox
+
+		wrapBox1(box4);
+		wrapBox1(box5);
+		wrapBox1(box6);
+	}
+	public static void studyBox(Box box) {
+		if (box instanceof Box) { //box가 참조하는 class가 Box일 경우 true
+			System.out.println("Box_Box");
+		}
+		if (box instanceof PaperBox) {//box가 참조하는 class가 Box일 경우, PaperBox일 경우 true
+			System.out.println("Paper_Paper");
+		}
+		if (box instanceof GoldBox) { //box가 참조하는 class가 Box일 경우, PaperBox일 경우, GoldBox일 경우 true
+			System.out.println("Gold_Gold");
+		}
+		System.out.println();
+	}
+```
+```java
+Box_Box
+
+Box_Box
+Paper_Paper
+
+Box_Box
+Paper_Paper
+Gold_Gold
+```
+ 
