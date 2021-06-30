@@ -79,6 +79,63 @@ public class Student extends Man {
 	
 }
 ```
+## 참조변수의 참조 범위
+ - Man man = new Man()은 Man 인스턴스를 생성하여 Man클래스형 참조변수가 참조하는 것이다. 익숙할 것이다.
+ - Man man = new Student()  !!!!>#!>!?! 뭔가 이상하다 Student인스턴스를 Man클래스형 참조변수로 받네?
+ - 상속관계에서는 부모클래스형의 참조변수로 자식클래스의 인스턴스를 참조하는 것이 가능하다.
+ - But, 자식클래스형의 참조변수로 부모클래스 인스턴스를 참조하는 것은 불가능하다.
+ - 그럼 자연스럽게 궁금해진다. 자식클래스 인스턴스를 부모클래스형으로 참조하면 __부모클래스의 멤버는? 자식클래스의 멤버는? 어디까지 사용가능하고 어디까지 사용하지 못할까?__
+ ```java
+ class Man{
+	
+	public void talk() {
+		System.out.println("건장한 성인입니다요");
+	}
+	public void company() {
+		System.out.println("백수입니다");
+	}
+}
+
+class Student extends Man{
+	
+	public void talk() { //메소드 오버라이딩
+		System.out.println("덜 건장한 학생입니다요");
+	}
+	public void school() {
+		System.out.println("경구고 다녀요");
+	}
+}
+
+public static void main(String[] args) {
+		Man man = new Man(); // talk(), company()
+		Man man1 = new Student(); //company(), 오버라이딩 된 talk()
+		Student man2 = new Student(); //의 멤버 - school(), company(), 오버라이딩 된 talk()
+		
+		man.talk();		
+		man.company();
+		
+		man1.talk();
+		man1.company();
+		//man1.school(); students 클래스의 메소드 사용 불가능!
+		
+		man2.company();
+		man2.school();
+		man2.talk();
+		//Student 클래스 메소드 전부 사용 가능!
+
+	}
+ ```
+```java
+건장한 성인입니다요 //man.talk();의 출력결과
+백수입니다 //man.company();의 출력결과
+덜 건장한 학생입니다요 // man1.talk(); 출력결과
+백수입니다 // man1.company(); 출력결과
+백수입니다 // man2.company(); 출력결과
+경구고 다녀요 // man2.school(); 출력결과
+덜 건장한 학생입니다요 // man2.talk(); 출력결과
+```
+- man1을 통해 접근 가능한 멤버는 Man에 정의되어 있는 멤버로 제한된다. (혹시 Man클래스가 상속을 받은 상태라면 그 부모도 되겠지요)
+
 ## instanceof 연산자
  - 참조변수가 참조하는 클래스나 상속하는 클래스를 묻는 연산자이다. 
  - if(cake instanceof Cake)
