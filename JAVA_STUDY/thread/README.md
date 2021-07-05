@@ -92,3 +92,5 @@ public static void main(String[] args) {
 	}
 ```
 - join 함수는 join함수를 사용한 스레드들이 모두 종료될 때까지 대기한다
+
+#### 잘 정리되어 있는 곳! [여기](https://dailyworker.github.io/java-thread/)
