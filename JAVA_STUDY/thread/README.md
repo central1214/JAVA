@@ -9,7 +9,7 @@
 단순 반복의 코드를 실행할 때도 여러 개의 쓰레드를 만들어서 분리 시킨 뒤 결과 데이터를 받아 합치면 그만큼 시간을 절약할 수 있다.
 
 ### thread 사용법
-#### Thread클래스 상속받기
+#### Thread클래스 직접 상속받기
 ```java
 import java.util.Iterator;
 
@@ -65,6 +65,44 @@ public class ThreadEx extends Thread { //Thread클래스를 상속
 9thread 끝!
 5thread 끝!
 3thread 끝!
+```
+
+### Runnable 인터페이스 
+```java
+import java.util.ArrayList;
+
+public class Test implements Runnable {
+    int seq;
+    public Test(int seq) {
+        this.seq = seq;
+    }
+    public void run() {
+        System.out.println(this.seq+" thread start.");
+        try {
+            Thread.sleep(1000);
+        }catch(Exception e) {
+        }
+        System.out.println(this.seq+" thread end.");
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Thread> threads = new ArrayList<Thread>();
+        for(int i=0; i<10; i++) {
+            Thread t = new Thread(new Test(i));
+            t.start();
+            threads.add(t);
+        }
+
+        for(int i=0; i<threads.size(); i++) {
+            Thread t = threads.get(i);
+            try {
+                t.join();
+            }catch(Exception e) {
+            }
+        }
+        System.out.println("main end.");
+    }
+}
 ```
 - 동시에 수행하기 때문에 인덱스 순서대로 나오지 않고 심지어 스레드가 종료되기 전에 메인메소드가 종료됐다
 #### join
